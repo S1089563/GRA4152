@@ -29,7 +29,6 @@ class Message:
         return self._messageBody
 
     ## Adds a line to the message body
-
     # @param line: line of text to add to the body
     def appendLine(self, line):
         self._messageBody += line + '\n'
