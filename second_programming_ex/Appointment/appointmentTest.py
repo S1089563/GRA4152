@@ -5,43 +5,53 @@ from onetime import OneTime
 import argparse
 import textwrap
 
+
 def demoAppointment():
     parser = argparse.ArgumentParser(prog='Appointment test program',
                                      formatter_class=argparse.RawDescriptionHelpFormatter,
                                      description=textwrap.dedent('''\
                                                   Appointment
                                       --------------------------------
-                                      A simulated Country program. Stores countries and returns the largest country,
-                                      the most populated country and the most dense country:
-                                      1) largestCountryDict:  returns the largest country (using dictionaries)
-                                         @return largest country
+                                      A simulated Appointments program. Saves and loads appointments and lets the user
+                                      see how many dates are in a specific date. 
+                                      Appointments can be of 3 classes: OneTime, Daily or Monthly.
+                                      
+                                      Instance methods:
+                                      
+                                      1) occursOn:  returns true if the appointment occurs in a specific date.
+                                         @param year, month, day: date that the users wants to use.
+                                         @return True if the appointment occurs in that date.
 
-                                      2) largestCountryList:  returns the largest country (using lists)
-                                         @return largest country
+                                      2) getDescription:  returns the description of the appointment.
+                                         @return description.
 
-                                      3) mostPopulatedCountryDict:  returns the most populated country (using dicts)
-                                         @return most populated country
-
-                                      4) mostPopulatedCountrylist:  returns the most populated country (using lists)
-                                         @return most populated country
-
-                                      5) largestDensityCountryDict(): returns the largest density country (using dicts)
-                                         @return largest density country
-
-                                      6) largestDensityCountryList(): returns the largest density country (using lists)
-                                         @return largest density country
+                                      3) getDate:  returns the date of the appointment. If it has an occurrence, returns
+                                         the date of the first appointment.
+                                         @return date of the appointment.
+                                      
+                                      Class Methods:
+                                      
+                                       1) allAppointments: prints all the appointments that occur in a specific date.
+                                          @param year, month, day: date to check
+                                       
+                                       2) save: save all the appointments in a csv file.
+                                          @param path of the file to save
+                                       
+                                       3) load: loads appointments from a csv file.
+                                          @param path of the file to load
 
                                       '''),
                                      epilog=textwrap.dedent('''\
                                                  Usage
                                       --------------------------------
-                                       country1 = Country('a',10,10) # initialize a Message
-                                       country1.largestCountryDict()
-                                       country1.largestCountryList()
-                                       country1.mostPopulatedCountryDict()
-                                       country1.mostPopulatedCountryList()
-                                       country1.largestDensityCountryDict()
-                                       country1.largestDensityCountryList()
+                                       Instance methods:
+                                       app1 = OneTime('appointment 1',2023, 1, 1) # initialize a Message
+                                       app1.occursOn(2023, 1, 1)
+                                       
+                                       Class Methods:
+                                       Appointment.allAppointments(2023, 1, 1)
+                                       Appointment.save("appointments.csv")
+                                       Appointment.load("appointments.csv")
                                       ''')
                                      )
     parser.add_argument('--save_demo', action='store_true', help='runs this demo')
@@ -53,12 +63,18 @@ def demoAppointment():
         b = Daily("Cita 2", 2023, 12, 5)
         c = Monthly("Cita 3", 2024, 1, 1)
         d = Daily("Cita 4", 2023, 1, 3)
+        print("Result: ")
         Appointment.allAppointments(2024, 2, 1)
         Appointment.save()
+        print("------------------------------")
+        print("Expected\nCita 1\nCita 2\nCita 3\nCita 4\n")
 
     if args.load_demo:
         Appointment.load("second_programming_ex/Appointment/dates2.csv")
-        print("-----")
+        print("Result: ")
         Appointment.allAppointments(2024, 2, 1)
+        print("------------------------------")
+        print("Expected\nCita 1\nCita 2\nCita 3\nCita 5\n")
+
 
 demoAppointment()

@@ -1,7 +1,6 @@
 from datetime import date
 
 
-
 # This module defines the appointment class. An appointment has a date and a description
 class Appointment:
 
@@ -32,7 +31,6 @@ class Appointment:
     def getDate(self):
         return self._date
 
-
     # prints all appointments that occur in a given date
     # @param year, month, day: date that the user wants to check
     @classmethod
@@ -45,11 +43,10 @@ class Appointment:
         if not auxiliar:
             print("There are no appointments in that date")
 
-
     # Saves all appointments
     @classmethod
-    def save(cls):
-        with open("second_programming_ex/Appointment/dates.csv", "w") as outfile:
+    def save(cls, file="second_programming_ex/Appointment/dates.csv"):
+        with open(file, "w") as outfile:
             for app in Appointment._appointments:
                 outfile.write(repr(app)+'\n')
 

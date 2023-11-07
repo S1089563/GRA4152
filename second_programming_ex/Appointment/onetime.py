@@ -19,4 +19,3 @@ class OneTime(Appointment):
         month = str(self.getDate().month)
         day = str(self.getDate().day)
         return "OneTime,"+self.getDescription()+","+year+","+month+","+day
-
