@@ -7,11 +7,13 @@ from animal import Animal
 class Dog(Animal):
     # Constructor method for the dog class
     # @param type: type of dog
+    # This is an example of inheritance. Dog inherits the __init__ method from Animal
     def __init__(self, type="Dog"):
         super().__init__(type)
 
     # Overrides the Animal greets() method
     # Defines the greeting of the dog
-    # This method prints woof
+    # @return This method prints woof
+    # This is an example of overriding. Dog inherits the greets method from Animal and extends it
     def greets(self):
-        print("woof")
+        return print("woof")

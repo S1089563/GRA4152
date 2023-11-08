@@ -6,10 +6,12 @@ from animal import Animal
 # the cat says meow
 class Cat(Animal):
     # Constructor method for the cat class
+    # This is an example of inheritance. Cat inherits the __init__ method from Animal
     def __init__(self, type="Cat"):
         super().__init__(type)
 
     # Defines the greeting of the cat
-    # This method prints meow
+    # @return This method prints meow
+    # This is an example of overriding. Cat inherits the greets method from Animal and extends it
     def greets(self):
-        print("meow")
+        return print("meow")

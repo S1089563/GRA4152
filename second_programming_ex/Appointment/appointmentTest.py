@@ -45,7 +45,7 @@ def demoAppointment():
                                                  Usage
                                       --------------------------------
                                        Instance methods:
-                                       app1 = OneTime('appointment 1',2023, 1, 1) # initialize a Message
+                                       app1 = OneTime('appointment 1',2023, 1, 1)
                                        app1.occursOn(2023, 1, 1)
                                        
                                        Class Methods:
@@ -54,8 +54,8 @@ def demoAppointment():
                                        Appointment.load("appointments.csv")
                                       ''')
                                      )
-    parser.add_argument('--save_demo', action='store_true', help='runs this demo')
-    parser.add_argument('--load_demo', action='store_true', help='runs this demo')
+    parser.add_argument('--save_demo', action='store_true', help='runs a demo that saves appointments')
+    parser.add_argument('--load_demo', action='store_true', help='runs a demo that loads appointments')
     args = parser.parse_args()
 
     if args.save_demo:
