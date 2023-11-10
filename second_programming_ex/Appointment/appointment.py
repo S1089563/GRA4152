@@ -44,6 +44,9 @@ class Appointment:
             print("There are no appointments in that date")
 
     # Saves all appointments
+    # This method is implemented just once and every class con inherit it. To make this method in a polymorphic approach
+    # this method would be abstract and then each class that extends Appointment would have to implement the method in a
+    # different way.
     @classmethod
     def save(cls, file="second_programming_ex/Appointment/dates.csv"):
         with open(file, "w") as outfile:
