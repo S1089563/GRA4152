@@ -49,14 +49,16 @@ The ConvNN and FullyConNN subclasses differ in the hidden\_layer method. This me
 \item \textbf{hidden\_layers():} this method returns the hidden layers for a neural network. This is an abstract method, implemented later in the subclass.
 \item \textbf{call():} this method returns the loss function based on the hidden and cls and the input values. Receives as parameters the inputs (x,y) a tuple where x is the input data and y is the result and returns the hidden layer object.
 \item \textbf{classifier():} this method defines the classifier layer in the neural network. This layer is the same for both subclasses. Receives as parameters the number of classes in the classification task and returns the classifier layer object.
-\item \textbf{test():} the train helps to train the model with the training data. Receives as parameters:
+\item \textbf{train():} the train helps to train the model with the training data. Receives as parameters:
 \begin{itemize}
-            \item \textbf{inputs:} a tuple (x\_tr, y\_tr) wheres x is the training dataset and y is the trainig dataset in order to train the model.
+            \item \textbf{inputs:} a tuple (x\_tr, y\_tr) wheres x is the training dataset and y is the training dataset in order to train the model.
             \item \textbf{optimizer:} optimizer algorithm to improve the weights in the neural networks. The default is Adam.
 \end{itemize}
 After the training, returns the loss function of the neural network.
+\item \textbf{test():} The test method returns the estimated class and the probability for each class based on the trained model and the test set input values.
 \item \textbf{set\_hidden():} this is an auxiliar method that sets the hidden instance variable to a new object.
 \item \textbf{set\_params():} this is an auxiliar method that sets the trainable parameters to a new object.
+\item \textbf{set\_cls():} this is an auxiliar method that sets the parameters of the classifier layer.
 \end{itemize}
 
 \subsection{Inheritance, overriding and polymorphism}

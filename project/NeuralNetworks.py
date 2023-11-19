@@ -78,7 +78,7 @@ class NeuralNetwork(tf.keras.Model):
 
     def test(self, x):
         """
-        The test method return the estimated class and the probability for each class based on the trained model and the
+        The test method returns the estimated class and the probability for each class based on the trained model and the
         x_te input
         @params: x is the matrix with the test input values.
         @return:
